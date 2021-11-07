@@ -27,7 +27,7 @@ func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func startServer() {
 	//被代理的服务器host和port
-	h := &handle{host: "github.com", port: "443"}
+	h := &handle{host: "www.baidu.com", port: "443"}
 	err := http.ListenAndServe(":8888", h)
 	if err != nil {
 		log.Fatalln("ListenAndServe: ", err)
