@@ -19,9 +19,8 @@ func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	proxy := httputil.NewSingleHostReverseProxy(remote)
-	proxy.ServeHTTP(func(w){
-		w.Header.Set("vvv", this.host)
-	}, r)
+	w.Header.Set("vvv", this.host)
+	proxy.ServeHTTP(w, r)
 }
 
 func startServer() {
