@@ -16,6 +16,7 @@ type handle struct {
 func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	remote, err := url.Parse("https://" + this.host + ":" + this.port+"/")
 	r.Header.Add("Host", this.host)
+	r.Header.Del("Upgrade-Insecure-Requests")
 	if err != nil {
 		panic(err)
 	}
