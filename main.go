@@ -14,7 +14,7 @@ type handle struct {
 
 func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	remote, err := url.Parse("https://" + this.host + ":" + this.port)
-	r.Header.Set("Host", host)
+	r.Header.Set("Host", this.host)
 	if err != nil {
 		panic(err)
 	}
