@@ -23,6 +23,7 @@ func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r)
 	proxy := httputil.NewSingleHostReverseProxy(remote)
 	w.Header().Set("ccc", this.host)
+	fmt.Println(w)
 	proxy.ServeHTTP(w, r)
 }
 
