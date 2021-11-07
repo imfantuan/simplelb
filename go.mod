@@ -1,3 +1,3 @@
-module github.com/kasvith/simplelb
+module github.com/imfantuan/simplelb
 
-go 1.13
+go 1.17
