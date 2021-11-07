@@ -14,7 +14,7 @@ type handle struct {
 }
 
 func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	remote, err := url.Parse("http://" + this.host + ":" + this.port+"/")
+	remote, err := url.Parse("https://" + this.host + ":" + this.port)
 	r.Header.Add("Host", this.host)
 	r.Header.Del("Upgrade-Insecure-Requests")
 	if err != nil {
@@ -29,7 +29,7 @@ func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func startServer() {
 	//被代理的服务器host和port
-	h := &handle{host: "dogefs.s3.ladydaily.com", port: "80"}
+	h := &handle{host: "s3.ladydaily.com", port: "443"}
 	err := http.ListenAndServe(":8888", h)
 	if err != nil {
 		log.Fatalln("ListenAndServe: ", err)
