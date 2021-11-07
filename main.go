@@ -21,13 +21,13 @@ func (this *handle) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println(r)
 	proxy := httputil.NewSingleHostReverseProxy(remote)
-	w.Header().Set("vvv", this.host)
+	w.Header().Set("ccc", this.host)
 	proxy.ServeHTTP(w, r)
 }
 
 func startServer() {
 	//被代理的服务器host和port
-	h := &handle{host: "www.baidu.com", port: "443"}
+	h := &handle{host: "s3.ladydaily.com", port: "443"}
 	err := http.ListenAndServe(":8888", h)
 	if err != nil {
 		log.Fatalln("ListenAndServe: ", err)
