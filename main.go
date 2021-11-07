@@ -123,7 +123,7 @@ func lb(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Service not available", http.StatusServiceUnavailable)
 		return
 	}
-	r.Header.Set("Host", "dribbble.com")
+	r.Header.Set("Host", "unsplash.com")
 	peer := serverPool.GetNextPeer()
 	if peer != nil {
 		peer.ReverseProxy.ServeHTTP(w, r)
